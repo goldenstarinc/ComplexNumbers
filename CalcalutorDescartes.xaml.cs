@@ -60,22 +60,22 @@ namespace Complex_Interface_WPF
                 if (button == AddDesc)
                 {
                     // Операция сложения
-                    result = num1.Add(num2);
+                    result = num1 + num2;
                 }
                 else if (button == SubDesc)
                 {
                     // Операция вычитания
-                    result = num1.Subtract(num2);
+                    result = num1 - num2;
                 }
                 else if (button == MultDesc)
                 {
                     // Операция умножения
-                    result = num1.Multiply(num2);
+                    result = num1 * num2;
                 }
                 else if (button == DivDesc)
                 {
                     // Операция деления
-                    result = num1.Divide(num2);
+                    result = num1 / num2;
                 }
 
                 // Если операция выполнена успешно, отображаем результат
@@ -105,6 +105,11 @@ namespace Complex_Interface_WPF
             Num2_Re_TB.Text = ""; // Очищаем действительную часть второго комплексного числа
             Num2_Im_TB.Text = ""; // Очищаем мнимую часть второго комплексного числа
             ResultDesc_TB.Text = ""; // Очищаем поле результата
+        }
+
+        private void DivDesc_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

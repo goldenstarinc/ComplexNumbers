@@ -13,7 +13,7 @@ namespace TestProject1
             ComplexNumbers num2 = new ComplexNumbers(1, 4);
 
             // Действие
-            ComplexNumbers result = num1.Add(num2);
+            ComplexNumbers result = num1 + num2;
 
             // Проверка
             Assert.Equal(3, result.a);
@@ -28,7 +28,7 @@ namespace TestProject1
             ComplexNumbers num2 = new ComplexNumbers(1, 4);
 
             // Действие
-            ComplexNumbers result = num1.Subtract(num2);
+            ComplexNumbers result = num1 - num2;
 
             // Проверка
             Assert.Equal(1, result.a);
@@ -39,15 +39,15 @@ namespace TestProject1
         public void TestMultiply()
         {
             // Подготовка
-            ComplexNumbers num1 = new ComplexNumbers(2, 3);
+            ComplexNumbers num1 = new ComplexNumbers(1, 3);
             ComplexNumbers num2 = new ComplexNumbers(1, 4);
 
             // Действие
-            ComplexNumbers result = num1.Multiply(num2);
+            ComplexNumbers result = num1 * num2;
 
             // Проверка
-            Assert.Equal(-10, result.a);
-            Assert.Equal(11, result.b);
+            Assert.Equal(-11, result.a, 2);
+            Assert.Equal(7, result.b, 2);
         }
 
         [Fact]
@@ -58,10 +58,10 @@ namespace TestProject1
             ComplexNumbers num2 = new ComplexNumbers(1, 4);
 
             // Действие
-            ComplexNumbers result = num1.Divide(num2);
+            ComplexNumbers result = num1 / num2;
 
             // Проверка
-            Assert.Equal(0.82, result.a, 2);  // Точность до второго знака
+            Assert.Equal(0.82, result.a, 2);
             Assert.Equal(-0.29, result.b, 2);
         }
 
@@ -73,7 +73,7 @@ namespace TestProject1
             ComplexNumbers num2 = new ComplexNumbers(498, 7385);
 
             // Действие
-            ComplexNumbers result = num1.Add(num2);
+            ComplexNumbers result = num1 + num2;
 
             // Проверка
             Assert.Equal(5036, result.a);
@@ -88,7 +88,7 @@ namespace TestProject1
             ComplexNumbers num2 = new ComplexNumbers(498, 7385);
 
             // Действие
-            ComplexNumbers result = num1.Subtract(num2);
+            ComplexNumbers result = num1 - num2;
 
             // Проверка
             Assert.Equal(4040, result.a);
@@ -103,7 +103,7 @@ namespace TestProject1
             ComplexNumbers num2 = new ComplexNumbers(498, 7385);
 
             // Действие
-            ComplexNumbers result = num1.Multiply(num2);
+            ComplexNumbers result = num1 * num2;
 
             // Проверка
             Assert.Equal(-45395481, result.a);
@@ -118,7 +118,7 @@ namespace TestProject1
             ComplexNumbers num2 = new ComplexNumbers(498, 7385);
 
             // Действие
-            ComplexNumbers result = num1.Divide(num2);
+            ComplexNumbers result = num1 / num2;
 
             // Проверка
             Assert.Equal(0.9111, result.a, 4);  // Точность до четвертого знака

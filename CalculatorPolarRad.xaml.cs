@@ -49,19 +49,19 @@ namespace Complex_Interface_WPF
                 // Выполнение операции в зависимости от нажатой кнопки
                 if (sender == AddPolarRad)
                 {
-                    result = z1.Add(z2); // Сложение двух комплексных чисел
+                    result = z1 + z2; // Сложение двух комплексных чисел
                 }
                 else if (sender == SubPolarRad)
                 {
-                    result = z1.Subtract(z2); // Вычитание второго комплексного числа из первого
+                    result = z1 - z2; // Вычитание второго комплексного числа из первого
                 }
                 else if (sender == MultPolarRad)
                 {
-                    result = z1.Multiply(z2); // Умножение двух комплексных чисел
+                    result = z1 * z2; // Умножение двух комплексных чисел
                 }
                 else if (sender == DivPolarRad)
                 {
-                    result = z1.Divide(z2); // Деление первого комплексного числа на второе
+                    result = z1 / z2; // Деление первого комплексного числа на второе
                 }
 
                 // Отображение результата

@@ -20,7 +20,7 @@
 
         </Border>
         <Border BorderBrush="#FFFEC5BB" CornerRadius="20" BorderThickness="1" HorizontalAlignment="Left" Height="104" Margin="578,283,0,0" VerticalAlignment="Top" Width="110" Background="#FFFEC5BB">
-            <Button x:Name="DivDesc" Content="/" HorizontalAlignment="Center" Height="84" VerticalAlignment="Center" Width="81" Background="{x:Null}" BorderBrush="{x:Null}" FontSize="48" FontFamily="Segoe UI Variable Display" FontWeight="Bold"/>
+            <Button x:Name="DivDesc" Content="/" HorizontalAlignment="Center" Height="84" VerticalAlignment="Center" Width="81" Background="{x:Null}" BorderBrush="{x:Null}" FontSize="48" FontFamily="Segoe UI Variable Display" FontWeight="Bold" Click="DivDesc_Click"/>
 
         </Border>
         <Border BorderBrush="#FFFEC5BB" CornerRadius="20" BorderThickness="1" HorizontalAlignment="Left" Height="104" Margin="442,283,0,0" VerticalAlignment="Top" Width="110" Background="#FFFEC5BB">

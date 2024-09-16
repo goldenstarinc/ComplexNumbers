@@ -78,7 +78,7 @@ namespace ComplexNumbersLib
         {
             double realPart = z1.a + z2.a;
             double imaginaryPart = z1.b + z2.b;
-            return new ComplexNumbers(Math.Round(realPart,4), Math.Round(imaginaryPart,4));
+            return new ComplexNumbers(realPart, imaginaryPart);
         }
 
         /// <summary>
@@ -92,7 +92,7 @@ namespace ComplexNumbersLib
         {
             double realPart = z1.a - z2.a; 
             double imaginaryPart = z1.b - z2.b; 
-            return new ComplexNumbers(Math.Round(realPart,4), Math.Round(imaginaryPart,4));
+            return new ComplexNumbers(realPart, imaginaryPart);
         }
 
         /// <summary>
@@ -102,28 +102,19 @@ namespace ComplexNumbersLib
         /// <param name="z1">Первое комплексное число</param>
         /// <param name="z2">Второе комплексное число</param>
         /// <returns>Результат умножения комплексных чисел</returns>
-        public static ComplexNumbers operator *(ComplexNumbers z1, ComplexNumbers z2)
-        {
-            double newRadius = z1.radius * z2.radius; 
-            double newAngle = z1.angle + z2.angle;
-            return new ComplexNumbers(Math.Round(newRadius,4), Math.Round(newAngle,4));
-        }
-
-
-        /// <summary>
-        /// Перегрузка оператора деления (/)
-        /// Деление двух комплексных чисел в экспоненциальной форме
-        /// </summary>
-        /// </summary>
-        /// <param name="z1">Первое комплексное число</param>
-        /// <param name="z2">Второе комплексное число</param>
-        /// <returns>Результат деления комплексных чисел</returns>
+        /// 
         public static ComplexNumbers operator /(ComplexNumbers z1, ComplexNumbers z2)
         {
             double newRadius = z1.radius / z2.radius;
             double newAngle = z1.angle - z2.angle;
+            return new ComplexNumbers(newRadius, newAngle, true);
+        }
 
-            return new ComplexNumbers(Math.Round(newRadius,4), Math.Round(newAngle,4));
+        public static ComplexNumbers operator *(ComplexNumbers z1, ComplexNumbers z2)
+        {
+            double newRadius = z1.radius * z2.radius;
+            double newAngle = z1.angle + z2.angle;
+            return new ComplexNumbers(newRadius, newAngle, true);
         }
 
         /// <summary>
@@ -131,9 +122,11 @@ namespace ComplexNumbersLib
         /// </summary>
         public string Display()
         {
+            double realPart = Math.Round(a, 3);
+            double imaginaryPart = Math.Round(b, 3);
             if (b < 0)
-                return $"{a} - {Math.Abs(b)}i";
-            return $"{a} + {b}i"; // Выводит комплексное число на консоль
+                return $"{realPart} - {Math.Abs(imaginaryPart)}i";
+            return $"{realPart} + {imaginaryPart}i"; // Выводит комплексное число на консоль
         }
     }
 }
