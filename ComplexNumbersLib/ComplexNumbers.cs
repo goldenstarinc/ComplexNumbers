@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Diagnostics;
+using System.Security.Cryptography;
+using System.Runtime.Remoting.Messaging;
 
 namespace ComplexNumbersLib
 {
@@ -54,58 +56,74 @@ namespace ComplexNumbersLib
             this.a = radius * Math.Cos(angle); // Вычисление реальной части
             this.b = radius * Math.Sin(angle); // Вычисление мнимой части
         }
-
         /// <summary>
-        /// Метод для сложения двух комплексных чисел.
+        /// Пустой конструктор для ситуаций, в которых инициализация параметров на этапе создания объекта не требуется или невозможна
         /// </summary>
-        /// <param name="other">Комплексное число, которое нужно сложить с текущим.</param>
-        /// <returns>Новый объект ComplexNumbers, представляющий результат сложения.</returns>
-        public ComplexNumbers Add(ComplexNumbers other)
+        public ComplexNumbers()
         {
-            // Сложение реальных и мнимых частей
-            double realPart = this.a + other.a; // Реальная часть суммы
-            double imaginaryPart = this.b + other.b; // Мнимая часть суммы
-            return new ComplexNumbers(Math.Round(realPart, 4), Math.Round(imaginaryPart, 4)); // Возвращает новое комплексное число
+            this.a = 0;
+            this.b = 0;
+            this.radius = 0;
+            this.angle = 0;
         }
 
         /// <summary>
-        /// Метод для вычитания одного комплексного числа из другого.
+        /// Перегрузка оператора сложения (+)
+        /// Сложение двух комплексных чисел в экспоненциальной форме
         /// </summary>
-        /// <param name="other">Комплексное число, которое нужно вычесть из текущего.</param>
-        /// <returns>Новый объект ComplexNumbers, представляющий результат вычитания.</returns>
-        public ComplexNumbers Subtract(ComplexNumbers other)
+        /// <param name="z1">Первое комплексное число</param>
+        /// <param name="z2">Второе комплексное число</param>
+        /// <returns>Результат сложения комплексных чисел</returns>
+        public static ComplexNumbers operator +(ComplexNumbers z1, ComplexNumbers z2)
         {
-            // Вычитание реальных и мнимых частей
-            double realPart = this.a - other.a; // Реальная часть разности
-            double imaginaryPart = this.b - other.b; // Мнимая часть разности
-            return new ComplexNumbers(Math.Round(realPart, 4), Math.Round(imaginaryPart, 4)); // Возвращает новое комплексное число
+            double realPart = z1.a + z2.a;
+            double imaginaryPart = z1.b + z2.b;
+            return new ComplexNumbers(Math.Round(realPart,4), Math.Round(imaginaryPart,4));
         }
 
         /// <summary>
-        /// Метод для умножения двух комплексных чисел.
+        /// Перегрузка оператора вычитания (-)
+        /// Сложение двух комплексных чисел в экспоненциальной форме
         /// </summary>
-        /// <param name="other">Комплексное число, на которое нужно умножить текущее.</param>
-        /// <returns>Новый объект ComplexNumbers, представляющий результат умножения.</returns>
-        public ComplexNumbers Multiply(ComplexNumbers other)
+        /// <param name="z1">Первое комплексное число</param>
+        /// <param name="z2">Второе комплексное число</param>
+        /// <returns>Результат вычитания комплексных чисел</returns>
+        public static ComplexNumbers operator -(ComplexNumbers z1, ComplexNumbers z2)
         {
-            // Умножение по формуле: (a + bi) * (c + di) = (ac - bd) + (ad + bc)i
-            double realPart = this.a * other.a - this.b * other.b; // Вычисление реальной части произведения
-            double imaginaryPart = this.a * other.b + this.b * other.a; // Вычисление мнимой части произведения
-            return new ComplexNumbers(Math.Round(realPart, 4), Math.Round(imaginaryPart, 4)); // Возвращает новое комплексное число
+            double realPart = z1.a - z2.a; 
+            double imaginaryPart = z1.b - z2.b; 
+            return new ComplexNumbers(Math.Round(realPart,4), Math.Round(imaginaryPart,4));
         }
 
         /// <summary>
-        /// Метод для деления текущего комплексного числа на другое.
+        /// Перегрузка оператора умножения (*)
+        /// Умножение двух комплексных чисел в экспоненциальной форме
         /// </summary>
-        /// <param name="other">Комплексное число, на которое нужно разделить текущее.</param>
-        /// <returns>Новый объект ComplexNumbers, представляющий результат деления.</returns>
-        public ComplexNumbers Divide(ComplexNumbers other)
+        /// <param name="z1">Первое комплексное число</param>
+        /// <param name="z2">Второе комплексное число</param>
+        /// <returns>Результат умножения комплексных чисел</returns>
+        public static ComplexNumbers operator *(ComplexNumbers z1, ComplexNumbers z2)
         {
-            // Деление по формуле: (a + bi) / (c + di) = ((ac + bd) + (bc - ad)i) / (c² + d²)
-            double denominator = other.a * other.a + other.b * other.b; // Вычисление знаменателя (c² + d²)
-            double realPart = (this.a * other.a + this.b * other.b) / denominator; // Вычисление реальной части частного
-            double imaginaryPart = (this.b * other.a - this.a * other.b) / denominator; // Вычисление мнимой части частного
-            return new ComplexNumbers(Math.Round(realPart, 4), Math.Round(imaginaryPart, 4)); // Возвращает новое комплексное число
+            double newRadius = z1.radius * z2.radius; 
+            double newAngle = z1.angle + z2.angle;
+            return new ComplexNumbers(Math.Round(newRadius,4), Math.Round(newAngle,4));
+        }
+
+
+        /// <summary>
+        /// Перегрузка оператора деления (/)
+        /// Деление двух комплексных чисел в экспоненциальной форме
+        /// </summary>
+        /// </summary>
+        /// <param name="z1">Первое комплексное число</param>
+        /// <param name="z2">Второе комплексное число</param>
+        /// <returns>Результат деления комплексных чисел</returns>
+        public static ComplexNumbers operator /(ComplexNumbers z1, ComplexNumbers z2)
+        {
+            double newRadius = z1.radius / z2.radius;
+            double newAngle = z1.angle - z2.angle;
+
+            return new ComplexNumbers(Math.Round(newRadius,4), Math.Round(newAngle,4));
         }
 
         /// <summary>
