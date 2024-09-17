@@ -42,5 +42,16 @@ namespace Complex_Interface_WPF
         {
 
         }
+        private void Info_Click(object sender, RoutedEventArgs e)
+        {
+            InitialText.Visibility = Visibility.Collapsed;
+            SFrame.Navigate(new Info());
+        }
+
+        private void Exponentiation_Click(object sender, RoutedEventArgs e)
+        {
+            InitialText.Visibility = Visibility.Collapsed;
+            SFrame.Navigate(new ExponentiationPage());
+        }
     }
 }

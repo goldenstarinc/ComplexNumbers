@@ -74,15 +74,23 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="InputDescart.xaml">
+    <Page Include="ExpDescartes.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="InputPolarDeg.xaml">
+    <Page Include="ExponentiationPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="InputPolarRad.xaml">
+    <Page Include="ExpPolarDeg.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ExpPolarRad.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Info.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -106,14 +114,20 @@
     <Compile Include="CalculatorPolarRad.xaml.cs">
       <DependentUpon>CalculatorPolarRad.xaml</DependentUpon>
     </Compile>
-    <Compile Include="InputDescart.xaml.cs">
-      <DependentUpon>InputDescart.xaml</DependentUpon>
+    <Compile Include="ExpDescartes.xaml.cs">
+      <DependentUpon>ExpDescartes.xaml</DependentUpon>
     </Compile>
-    <Compile Include="InputPolarDeg.xaml.cs">
-      <DependentUpon>InputPolarDeg.xaml</DependentUpon>
+    <Compile Include="ExponentiationPage.xaml.cs">
+      <DependentUpon>ExponentiationPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="InputPolarRad.xaml.cs">
-      <DependentUpon>InputPolarRad.xaml</DependentUpon>
+    <Compile Include="ExpPolarDeg.xaml.cs">
+      <DependentUpon>ExpPolarDeg.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ExpPolarRad.xaml.cs">
+      <DependentUpon>ExpPolarRad.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Info.xaml.cs">
+      <DependentUpon>Info.xaml</DependentUpon>
     </Compile>
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
@@ -158,6 +172,12 @@
       <Project>{73d7f003-e375-4afd-8bf1-5ae428b86ade}</Project>
       <Name>ComplexNumbersLib</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="info1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="info2.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

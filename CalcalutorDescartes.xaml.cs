@@ -107,10 +107,7 @@ namespace Complex_Interface_WPF
             ResultDesc_TB.Text = ""; // Очищаем поле результата
         }
 
-        private void DivDesc_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
+        
     }
 }
 
