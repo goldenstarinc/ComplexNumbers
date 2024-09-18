@@ -14,14 +14,9 @@
             <TextBox x:Name="Num_Re_TB" HorizontalAlignment="Center" Height="56" TextWrapping="Wrap" Text="" VerticalAlignment="Center" Width="234" FontFamily="Segoe UI Variable Display" FontSize="40" BorderBrush="{x:Null}" Background="{x:Null}" SelectionBrush="{x:Null}"/>
         </Border>
         <Label Content="z =" HorizontalAlignment="Left" Height="78" Margin="153,137,0,0" VerticalAlignment="Top" Width="84" FontSize="40" FontFamily="Segoe UI Variable Display"/>
-        <Border BorderBrush="#FFFEC5BB" CornerRadius="20" BorderThickness="1" HorizontalAlignment="Left" Height="76" Margin="546,301,0,0" VerticalAlignment="Top" Width="77" Background="#FFFEC5BB">
-            <Button x:Name="DoExpDesc" Content="→" HorizontalAlignment="Center" Height="84" VerticalAlignment="Center" Width="81" Background="{x:Null}" BorderBrush="{x:Null}" FontSize="48" FontFamily="Segoe UI Variable Display" FontWeight="Bold"/>
-
-        </Border>
         <Label Content="Результат:" HorizontalAlignment="Left" Margin="23,423,0,0" VerticalAlignment="Top" Width="143" FontFamily="Segoe UI Variable Display" FontWeight="Bold" FontSize="24" Foreground="#FF939CA3"/>
         <Label Content="z =" HorizontalAlignment="Left" Height="94" Margin="157,483,0,0" VerticalAlignment="Top" Width="64" FontSize="40" FontFamily="Segoe UI Variable Display" FontWeight="Bold"/>
         <TextBox x:Name="ResultExpDesc_TB" HorizontalAlignment="Left" Height="Auto" Margin="226,488,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="648" Background="{x:Null}" BorderBrush="{x:Null}" SelectionBrush="{x:Null}" FontFamily="Segoe UI Variable Display" FontSize="40" FontWeight="Bold"/>
-        <Label Content="Укажи степень:" HorizontalAlignment="Left" Margin="20,224,0,0" VerticalAlignment="Top" Width="201" FontFamily="Segoe UI Variable Display" FontWeight="Bold" FontSize="24" Foreground="#FF939CA3"/>
         <Label Content="+" HorizontalAlignment="Left" Height="73" Margin="478,137,0,0" VerticalAlignment="Top" Width="37" FontSize="40" FontFamily="Segoe UI Variable Display"/>
         <Border BorderThickness="1" HorizontalAlignment="Left" Height="56" Margin="524,140,0,0" VerticalAlignment="Top" Width="234" BorderBrush="#FFFEC5BB" CornerRadius="5">
             <TextBox x:Name="Num_Im_TB" HorizontalAlignment="Center" Height="56" TextWrapping="Wrap" Text="" VerticalAlignment="Center" Width="234" FontFamily="Segoe UI Variable Display" FontSize="40" BorderBrush="{x:Null}" Background="{x:Null}" SelectionBrush="{x:Null}"/>
@@ -30,12 +25,16 @@
         <Border BorderBrush="#FFF8EDEB" BorderThickness="1" HorizontalAlignment="Left" Height="33" Margin="21,18,0,0" VerticalAlignment="Top" Width="262" CornerRadius="10" Background="#FFF8EDEB">
             <TextBlock Height="33" TextWrapping="Wrap" VerticalAlignment="Center" FontFamily="Segoe UI Variable Display" FontSize="20" HorizontalAlignment="Center" Width="262"><Run Text="  В"/><Run Text="води"/><Run Text=" "/><Run Text="числа"/><Run Text=" "/><Run Text="так: "/><Run Text="z = x + yi"/><LineBreak/><Run Text="   "/></TextBlock>
         </Border>
-        <Border BorderThickness="3" HorizontalAlignment="Left" Height="76" Margin="197,301,0,0" VerticalAlignment="Top" Width="318" BorderBrush="#FFFEC5BB" CornerRadius="20">
-            <TextBox x:Name="InputExpDesc" HorizontalAlignment="Center" Height="76" TextWrapping="Wrap" Text="" VerticalAlignment="Center" Width="318" FontFamily="Segoe UI Variable Display" FontSize="48" BorderBrush="{x:Null}" Background="{x:Null}" SelectionBrush="{x:Null}"/>
+        <Label Content="Укажи степень:" HorizontalAlignment="Left" Margin="21,204,0,0" VerticalAlignment="Top" Width="201" FontFamily="Segoe UI Variable Display" FontWeight="Bold" FontSize="24" Foreground="#FF939CA3"/>
+        <RadioButton x:Name="R_Set" Content="Вещественное число" HorizontalAlignment="Left" Height="43" Margin="40,252,0,0" VerticalAlignment="Top" Width="355" FontSize="30" Checked="R_Set_Checked"/>
+        <RadioButton x:Name="C_Set" Content="Комплексное (Декартова)" HorizontalAlignment="Left" Height="37" Margin="40,295,0,0" VerticalAlignment="Top" Width="376" FontSize="30" Checked="C_Set_Checked"/>
+        <Frame x:Name="DescFrame" Content="" HorizontalAlignment="Left" Height="65" Margin="40,353,0,0" VerticalAlignment="Top" Width="700"/>
+        <Border BorderBrush="#FFFEC5BB" CornerRadius="15" BorderThickness="3" HorizontalAlignment="Left" Height="56" Margin="776,354,0,0" VerticalAlignment="Top" Width="56">
+            <Button Name="DelDescartes" Content="✕" HorizontalAlignment="Center" Height="56" VerticalAlignment="Center" Width="56" Background="{x:Null}" BorderBrush="{x:Null}" FontSize="36" FontFamily="Segoe UI Variable Display" FontWeight="Bold"/>
+
         </Border>
-        <Border BorderBrush="#FFFEC5BB" CornerRadius="20" BorderThickness="3" HorizontalAlignment="Left" Height="76" Margin="634,301,0,0" VerticalAlignment="Top" Width="78">
-            <Button x:Name="RestartExpDesc" Content="↺" HorizontalAlignment="Center" Height="84" VerticalAlignment="Center" Width="90" Background="{x:Null}" BorderBrush="{x:Null}" FontSize="36" FontFamily="Segoe UI Variable Display" FontWeight="Bold"/>
-        </Border>
+        <RadioButton Name="C_Set_PolarDeg" Content="Комплексное (Полярная, Deg)" HorizontalAlignment="Left" Height="43" Margin="437,252,0,0" VerticalAlignment="Top" Width="437" FontSize="30" Checked="C_Set_PolarDeg_Checked"/>
+        <RadioButton Name="C_Set_PolarRad" Content="Комплексное (Полярная, Rad)" HorizontalAlignment="Left" Height="37" Margin="437,295,0,0" VerticalAlignment="Top" Width="437" FontSize="30" Checked="C_Set_PolarRad_Checked"/>
 
     </Grid>
 </Page>

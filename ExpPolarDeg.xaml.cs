@@ -24,5 +24,25 @@ namespace Complex_Interface_WPF
         {
             InitializeComponent();
         }
+
+        private void R_Set_Checked(object sender, RoutedEventArgs e)
+        {
+            ExpPolarDegFrame.Navigate(new RealInput_Exponentiation());
+        }
+
+        private void C_Set_Checked(object sender, RoutedEventArgs e)
+        {
+            ExpPolarDegFrame.Navigate(new ComplexInput_Exponentiation());
+        }
+
+        private void C_Set_PolarDeg_Checked(object sender, RoutedEventArgs e)
+        {
+            ExpPolarDegFrame.Navigate(new ComplexPolarDegInput_Exponentiation());
+        }
+
+        private void C_Set_PolarRad_Checked(object sender, RoutedEventArgs e)
+        {
+            ExpPolarDegFrame.Navigate(new ComplexPolarRadInput_Exponentiation());
+        }
     }
 }

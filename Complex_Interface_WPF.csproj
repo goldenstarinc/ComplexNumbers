@@ -58,6 +58,15 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="ComplexPolarDegInput_Exponentiation.xaml.cs">
+      <DependentUpon>ComplexPolarDegInput_Exponentiation.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ComplexPolarRadInput_Exponentiation.xaml.cs">
+      <DependentUpon>ComplexPolarRadInput_Exponentiation.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="RealInput_Exponentiation.xaml.cs">
+      <DependentUpon>RealInput_Exponentiation.xaml</DependentUpon>
+    </Compile>
     <Page Include="CalcalutorDescartes.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -71,6 +80,18 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="CalculatorPolarRad.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ComplexInput_Exponentiation.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ComplexPolarDegInput_Exponentiation.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ComplexPolarRadInput_Exponentiation.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -114,6 +135,9 @@
     <Compile Include="CalculatorPolarRad.xaml.cs">
       <DependentUpon>CalculatorPolarRad.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ComplexInput_Exponentiation.xaml.cs">
+      <DependentUpon>ComplexInput_Exponentiation.xaml</DependentUpon>
+    </Compile>
     <Compile Include="ExpDescartes.xaml.cs">
       <DependentUpon>ExpDescartes.xaml</DependentUpon>
     </Compile>
@@ -134,6 +158,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="Page3.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="RealInput_Exponentiation.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
