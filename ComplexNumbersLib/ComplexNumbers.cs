@@ -137,6 +137,29 @@ namespace ComplexNumbersLib
         }
 
         /// <summary>
+        /// Метод для возведения одного комплексного числа в степень другого комплексного числа
+        /// </summary>
+        /// <param name="z1">Основание (комплексное число)</param>
+        /// <param name="z2">Показатель степени (комплексное число)</param>
+        /// <returns>Результат возведения в степень</returns>
+        public static ComplexNumbers Pow(ComplexNumbers z1, ComplexNumbers z2)
+        {
+            // Вычисляем логарифм от z1 (ln(z1))
+            double lnRadius = Math.Log(z1.radius);
+            double angleLn = z1.angle;
+
+            // Умножаем z2 на логарифм z1
+            double realPart = z2.a * lnRadius - z2.b * angleLn; // Реальная часть произведения
+            double imaginaryPart = z2.a * angleLn + z2.b * lnRadius; // Мнимая часть произведения
+
+            // Преобразуем результат в экспоненциальную форму
+            double newRadius = Math.Exp(realPart); // Радиус новой комплексной экспоненты
+            double newAngle = imaginaryPart; // Угол новой комплексной экспоненты
+
+            return new ComplexNumbers(newRadius, newAngle, true);
+        }
+
+        /// <summary>
         /// Выводит комплексное число на консоль в виде строки.
         /// </summary>
         public string Display()
