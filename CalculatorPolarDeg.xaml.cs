@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Media;
 using ComplexNumbersLib;
 
 namespace Complex_Interface_WPF
@@ -39,6 +40,11 @@ namespace Complex_Interface_WPF
                 double r2 = double.Parse(Num2_RDeg_TB.Text); // Радиус второго числа
                 double theta2 = double.Parse(Num2_CosDeg_TB.Text); // Угол второго числа в градусах
 
+                if (string.IsNullOrEmpty(Num1_RDeg_TB.Text) || string.IsNullOrEmpty(Num2_RDeg_TB.Text) ||
+                string.IsNullOrEmpty(Num1_CosDeg_TB.Text) || string.IsNullOrEmpty(Num2_CosDeg_TB.Text))
+                {
+                    throw new InvalidOperationException("Ошибка: Все поля должны быть заполнены.");
+                }
                 // Преобразование полярных координат в комплексные числа
                 ComplexNumbers z1 = new ComplexNumbers(r1, theta1, false);
                 ComplexNumbers z2 = new ComplexNumbers(r2, theta2, false);
@@ -65,11 +71,31 @@ namespace Complex_Interface_WPF
 
                 // Отображение результата в текстовом поле
                 ResultPolarDeg_TB.Text = result.Display();
+                ResultPolarDeg_TB.Foreground = Brushes.Black;
+            }
+            catch (FormatException)
+            {
+                // Обработка ошибок формата (например, если введены буквы)
+                ResultPolarDeg_TB.Text = "Ошибка: Пожалуйста, введите числовые значения.";
+                ResultPolarDeg_TB.Foreground = Brushes.Red; // Устанавливаем цвет текста на красный
+            }
+            catch (InvalidOperationException ex)
+            {
+                // Обработка ошибки пустых полей или других операций
+                ResultPolarDeg_TB.Text = ex.Message;
+                ResultPolarDeg_TB.Foreground = Brushes.Red; // Устанавливаем цвет текста на красный
+            }
+            catch (DivideByZeroException)
+            {
+                // Обработка ошибки деления на ноль
+                ResultPolarDeg_TB.Text = "Ошибка: Деление на ноль невозможно.";
+                ResultPolarDeg_TB.Foreground = Brushes.Red; // Устанавливаем цвет текста на красный
             }
             catch (Exception ex)
             {
-                // Обработка исключений и отображение сообщения об ошибке
-                MessageBox.Show($"Ошибка: {ex.Message}");
+                // Обработка остальных исключений
+                ResultPolarDeg_TB.Text = $"Ошибка: {ex.Message}";
+                ResultPolarDeg_TB.Foreground = Brushes.Red; // Устанавливаем цвет текста на красный
             }
         }
 
@@ -86,6 +112,7 @@ namespace Complex_Interface_WPF
             Num2_RDeg_TB.Text = ""; // Радиус второго числа
             Num2_CosDeg_TB.Text = ""; // Угол второго числа в градусах
             ResultPolarDeg_TB.Text = ""; // Очистка текстового поля результата
+            ResultPolarDeg_TB.Foreground = Brushes.Black; // Устанавливаем цвет текста на черный после перезагрузки
         }
     }
 }

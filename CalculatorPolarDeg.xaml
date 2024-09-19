@@ -4,9 +4,8 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:Complex_Interface_WPF"
-      mc:Ignorable="d" 
-      d:DesignHeight="590" d:DesignWidth="900"
-      Title="CalculatorPolarDeg">
+      mc:Ignorable="d"
+      Title="CalculatorPolarDeg" Height="642" Width="969">
 
     <Grid Background="White">
         <Label Content="Число 1" HorizontalAlignment="Left" Margin="21,112,0,0" VerticalAlignment="Top" Width="143" FontFamily="Segoe UI Variable Display" FontSize="24" Foreground="#FF939CA3" FontWeight="Bold"/>
@@ -33,7 +32,7 @@
         </Border>
         <Label Content="Результат:" HorizontalAlignment="Left" Margin="21,440,0,0" VerticalAlignment="Top" Width="143" FontFamily="Segoe UI Variable Display" FontWeight="Bold" FontSize="24" Foreground="#FF939CA3"/>
         <Label Content="z =" HorizontalAlignment="Left" Height="64" Margin="155,500,0,0" VerticalAlignment="Top" Width="65" FontSize="40" FontFamily="Segoe UI Variable Display" FontWeight="Bold"/>
-        <TextBox Name="ResultPolarDeg_TB" HorizontalAlignment="Left" Height="Auto" Margin="225,509,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="650" Background="{x:Null}" BorderBrush="{x:Null}" SelectionBrush="{x:Null}" FontFamily="Segoe UI Variable Display" FontSize="40" FontWeight="Bold"/>
+        <TextBox Name="ResultPolarDeg_TB" HorizontalAlignment="Left" Height="Auto" Margin="225,509,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="Auto" Background="{x:Null}" BorderBrush="{x:Null}" SelectionBrush="{x:Null}" FontFamily="Segoe UI Variable Display" FontSize="40" FontWeight="Bold"/>
         <Border BorderBrush="#FFFEC5BB" CornerRadius="20" BorderThickness="3" HorizontalAlignment="Left" Height="104" Margin="712,314,0,0" VerticalAlignment="Top" Width="110">
             <Button x:Name="RestartPolarDeg" Content="↺" HorizontalAlignment="Center" Height="84" VerticalAlignment="Center" Width="90" Background="{x:Null}" BorderBrush="{x:Null}" FontSize="36" FontFamily="Segoe UI Variable Display" FontWeight="Bold"/>
         </Border>

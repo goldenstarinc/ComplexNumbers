@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Media;
 using ComplexNumbersLib;
 
 namespace Complex_Interface_WPF
@@ -82,14 +83,56 @@ namespace Complex_Interface_WPF
                 if (result != null)
                 {
                     ResultDesc_TB.Text = result.Display(); // Отображаем результат в текстовом поле результата
+                    ResultDesc_TB.Foreground = Brushes.Black; // Устанавливаем цвет текста на черный
                 }
+            }
+            catch (FormatException)
+            {
+                // Обработка ошибок формата, например, если введены буквы
+                if (string.IsNullOrEmpty(Num1_Re_TB.Text) || string.IsNullOrEmpty(Num1_Im_TB.Text) ||
+                    string.IsNullOrEmpty(Num2_Re_TB.Text) || string.IsNullOrEmpty(Num2_Im_TB.Text))
+                {
+                    ResultDesc_TB.Text = "Ошибка: Все поля должны быть заполнены.";
+                }
+                else if (HasNonNumericInput(Num1_Re_TB.Text) || HasNonNumericInput(Num1_Im_TB.Text) ||
+                         HasNonNumericInput(Num2_Re_TB.Text) || HasNonNumericInput(Num2_Im_TB.Text))
+                {
+                    ResultDesc_TB.Text = "Ошибка: Введите только числовые значения.";
+                }
+                else
+                {
+                    ResultDesc_TB.Text = $"Ошибка: Неверный формат ввода. Убедитесь, что все значения числовые.";
+                }
+
+                ResultDesc_TB.Foreground = Brushes.Red; // Устанавливаем цвет текста на красный
+            }
+            catch (DivideByZeroException)
+            {
+                // Обработка ошибки деления на ноль
+                ResultDesc_TB.Text = "Ошибка: Деление на ноль невозможно.";
+                ResultDesc_TB.Foreground = Brushes.Red; // Устанавливаем цвет текста на красный
             }
             catch (Exception ex)
             {
-                // Показ сообщения об ошибке в случае некорректного ввода или ошибок операции
-                MessageBox.Show($"Ошибка: {ex.Message}", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+                // Обработка остальных исключений
+                ResultDesc_TB.Text = $"Ошибка: {ex.Message}";
+                ResultDesc_TB.Foreground = Brushes.Red; // Устанавливаем цвет текста на красный
             }
         }
+
+        // Проверка, содержит ли текст нечисловые символы
+        private bool HasNonNumericInput(string input)
+        {
+            foreach (char c in input)
+            {
+                if (!char.IsDigit(c) && c != '.' && c != '-' && c != ',')
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+
 
         /// <summary>
         /// Обрабатывает событие нажатия кнопки перезагрузки.
@@ -105,6 +148,7 @@ namespace Complex_Interface_WPF
             Num2_Re_TB.Text = ""; // Очищаем действительную часть второго комплексного числа
             Num2_Im_TB.Text = ""; // Очищаем мнимую часть второго комплексного числа
             ResultDesc_TB.Text = ""; // Очищаем поле результата
+            ResultDesc_TB.Foreground = Brushes.Black; // Устанавливаем цвет текста на черный после перезагрузки
         }
 
         

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Media;
 using ComplexNumbersLib;
 
 namespace Complex_Interface_WPF
@@ -39,6 +40,12 @@ namespace Complex_Interface_WPF
                 double r2 = double.Parse(Num2_RRad_TB.Text); // Радиус второго числа
                 double theta2 = double.Parse(Num2_CosRad_TB.Text); // Угол второго числа в радианах
 
+                // Проверка на пустые поля
+                if (string.IsNullOrEmpty(Num1_RRad_TB.Text) || string.IsNullOrEmpty(Num2_RRad_TB.Text) ||
+                    string.IsNullOrEmpty(Num1_CosRad_TB.Text) || string.IsNullOrEmpty(Num2_CosRad_TB.Text))
+                {
+                    throw new InvalidOperationException("Ошибка: Все поля должны быть заполнены.");
+                }
                 // Преобразование полярных координат в комплексные числа
                 ComplexNumbers z1 = new ComplexNumbers(r1, theta1, true);
                 ComplexNumbers z2 = new ComplexNumbers(r2, theta2, true);
@@ -66,11 +73,31 @@ namespace Complex_Interface_WPF
 
                 // Отображение результата
                 ResultPolarRad_TB.Text = result.Display();
+                ResultPolarRad_TB.Foreground = Brushes.Black;
+            }
+            catch (FormatException)
+            {
+                // Обработка ошибок формата (например, если введены буквы)
+                ResultPolarRad_TB.Text = "Ошибка: Пожалуйста, введите числовые значения.";
+                ResultPolarRad_TB.Foreground = Brushes.Red; // Устанавливаем цвет текста на красный
+            }
+            catch (InvalidOperationException ex)
+            {
+                // Обработка ошибки пустых полей или других операций
+                ResultPolarRad_TB.Text = ex.Message;
+                ResultPolarRad_TB.Foreground = Brushes.Red; // Устанавливаем цвет текста на красный
+            }
+            catch (DivideByZeroException)
+            {
+                // Обработка ошибки деления на ноль
+                ResultPolarRad_TB.Text = "Ошибка: Деление на ноль невозможно.";
+                ResultPolarRad_TB.Foreground = Brushes.Red; // Устанавливаем цвет текста на красный
             }
             catch (Exception ex)
             {
-                // Обработка исключений и отображение сообщения об ошибке
-                MessageBox.Show($"Ошибка: {ex.Message}");
+                // Обработка остальных исключений
+                ResultPolarRad_TB.Text = $"Ошибка: {ex.Message}";
+                ResultPolarRad_TB.Foreground = Brushes.Red; // Устанавливаем цвет текста на красный
             }
         }
 
@@ -87,6 +114,7 @@ namespace Complex_Interface_WPF
             Num2_RRad_TB.Text = ""; // Очистка радиуса второго числа
             Num2_CosRad_TB.Text = ""; // Очистка угла второго числа
             ResultPolarRad_TB.Text = ""; // Очистка поля результата
+            ResultPolarRad_TB.Foreground = Brushes.Black; // Устанавливаем цвет текста на черный после перезагрузки
         }
     }
 }

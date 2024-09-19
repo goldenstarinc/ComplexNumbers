@@ -8,7 +8,7 @@
       d:DesignHeight="590" d:DesignWidth="900"
       Title="CalcalutorDescartes">
 
-    <Grid Background="White">
+    <Grid Background="White" Margin="0,0,-45,-45">
         <Label Content="Число 1" HorizontalAlignment="Left" Margin="21,113,0,0" VerticalAlignment="Top" Width="143" FontFamily="Segoe UI Variable Display" FontSize="24" Foreground="#FF939CA3" FontWeight="Bold"/>
         <Label Content="Число 2" HorizontalAlignment="Left" Margin="21,190,0,0" VerticalAlignment="Top" Width="143" FontFamily="Segoe UI Variable Display" FontSize="24" Foreground="#FF939CA3" FontWeight="Bold"/>
         <Border BorderThickness="1" HorizontalAlignment="Left" Height="56" Margin="242,98,0,0" VerticalAlignment="Top" Width="234" BorderBrush="#FFFEC5BB" CornerRadius="5">
@@ -33,7 +33,7 @@
         </Border>
         <Label Content="Результат:" HorizontalAlignment="Left" Margin="21,440,0,0" VerticalAlignment="Top" Width="143" FontFamily="Segoe UI Variable Display" FontWeight="Bold" FontSize="24" Foreground="#FF939CA3"/>
         <Label Content="z =" HorizontalAlignment="Left" Height="64" Margin="155,500,0,0" VerticalAlignment="Top" Width="64" FontSize="40" FontFamily="Segoe UI Variable Display" FontWeight="Bold"/>
-        <TextBox Name="ResultDesc_TB" HorizontalAlignment="Left" Height="Auto" Margin="224,505,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="651" Background="{x:Null}" BorderBrush="{x:Null}" SelectionBrush="{x:Null}" FontFamily="Segoe UI Variable Display" FontSize="40" FontWeight="Bold"/>
+        <TextBox Name="ResultDesc_TB" HorizontalAlignment="Left" Height="Auto" Margin="224,505,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="Auto" Background="{x:Null}" BorderBrush="{x:Null}" SelectionBrush="{x:Null}" FontFamily="Segoe UI Variable Display" FontSize="40" FontWeight="Bold"/>
         <Border BorderBrush="#FFFEC5BB" CornerRadius="20" BorderThickness="3" HorizontalAlignment="Left" Height="104" Margin="712,315,0,0" VerticalAlignment="Top" Width="110">
             <Button x:Name="RestartDesc" Content="↺" HorizontalAlignment="Center" Height="84" VerticalAlignment="Center" Width="90" Background="{x:Null}" BorderBrush="{x:Null}" FontSize="36" FontFamily="Segoe UI Variable Display" FontWeight="Bold"/>
         </Border>
