@@ -175,17 +175,16 @@ namespace Complex_Interface_WPF
                 if (toSystem.Contains("Degrees"))
                 {
                     angle = angle * (180 / Math.PI);
+                    return complexNumber.Display(false);
                 }
-
+                else if (toSystem.Contains("Radians"))
+                {
+                    return complexNumber.Display(true);
+                }
                 // Экспоненциальное представление
-                if (toSystem.Contains("Exponential"))
+                else if (toSystem.Contains("Exponential"))
                 {
                     return $"{radius} * e ^ (i * {angle})";
-                }
-                // Тригонометрическое представление
-                else
-                {
-                    return $"r = {radius}; angle = {angle}";
                 }
             }
 
