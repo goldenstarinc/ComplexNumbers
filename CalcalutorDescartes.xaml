@@ -33,7 +33,7 @@
         </Border>
         <Label Content="Результат:" HorizontalAlignment="Left" Margin="21,440,0,0" VerticalAlignment="Top" Width="143" FontFamily="Segoe UI Variable Display" FontWeight="Bold" FontSize="24" Foreground="#FF939CA3"/>
         <Label Content="z =" HorizontalAlignment="Left" Height="64" Margin="155,500,0,0" VerticalAlignment="Top" Width="64" FontSize="40" FontFamily="Segoe UI Variable Display" FontWeight="Bold"/>
-        <TextBox Name="ResultDesc_TB" HorizontalAlignment="Left" Height="Auto" Margin="224,505,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="Auto" Background="{x:Null}" BorderBrush="{x:Null}" SelectionBrush="{x:Null}" FontFamily="Segoe UI Variable Display" FontSize="40" FontWeight="Bold"/>
+        <TextBox Name="ResultDesc_TB" HorizontalAlignment="Left" Height="Auto" Margin="227,509,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="Auto" Background="{x:Null}" BorderBrush="{x:Null}" SelectionBrush="{x:Null}" FontFamily="Segoe UI Variable Display" FontSize="40" FontWeight="Bold"/>
         <Border BorderBrush="#FFFEC5BB" CornerRadius="20" BorderThickness="3" HorizontalAlignment="Left" Height="104" Margin="712,315,0,0" VerticalAlignment="Top" Width="110">
             <Button x:Name="RestartDesc" Content="↺" HorizontalAlignment="Center" Height="84" VerticalAlignment="Center" Width="90" Background="{x:Null}" BorderBrush="{x:Null}" FontSize="36" FontFamily="Segoe UI Variable Display" FontWeight="Bold"/>
         </Border>
@@ -55,6 +55,9 @@
         <Border BorderBrush="#FFF8EDEB" BorderThickness="1" HorizontalAlignment="Left" Height="34" Margin="21,34,0,0" VerticalAlignment="Top" Width="262" CornerRadius="10" Background="#FFF8EDEB">
             <TextBlock Height="33" TextWrapping="Wrap" VerticalAlignment="Center" FontFamily="Segoe UI Variable Display" FontSize="20" HorizontalAlignment="Center" Width="262"><Run Text="  В"/><Run Text="води"/><Run Text=" "/><Run Text="числа"/><Run Text=" "/><Run Text="так: "/><Run Text="z = x + yi"/><LineBreak/><Run Text="   "/></TextBlock>
         </Border>
+        <TextBox x:Name="ResultDesc_TB_Copy" HorizontalAlignment="Left" Height="Auto" Margin="227,510,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="Auto" Background="{x:Null}" BorderBrush="{x:Null}" SelectionBrush="{x:Null}" FontFamily="Segoe UI Variable Display" FontSize="40" FontWeight="Bold"/>
+        <TextBox x:Name="ResultDesc_TB_Copy1" HorizontalAlignment="Left" Height="Auto" Margin="227,511,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="Auto" Background="{x:Null}" BorderBrush="{x:Null}" SelectionBrush="{x:Null}" FontFamily="Segoe UI Variable Display" FontSize="40" FontWeight="Bold"/>
+        <TextBox x:Name="ResultDesc_TB_Copy2" HorizontalAlignment="Left" Height="Auto" Margin="227,494,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="Auto" Background="{x:Null}" BorderBrush="{x:Null}" SelectionBrush="{x:Null}" FontFamily="Segoe UI Variable Display" FontSize="40" FontWeight="Bold"/>
 
     </Grid>
 </Page>

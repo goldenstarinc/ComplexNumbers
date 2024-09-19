@@ -19,7 +19,7 @@
         <Label Content="r =" HorizontalAlignment="Left" Height="78" Margin="177,137,0,0" VerticalAlignment="Top" Width="84" FontSize="40" FontFamily="Segoe UI Variable Display"/>
         <Label Content="Результат:" HorizontalAlignment="Left" Margin="23,423,0,0" VerticalAlignment="Top" Width="143" FontFamily="Segoe UI Variable Display" FontWeight="Bold" FontSize="24" Foreground="#FF939CA3"/>
         <Label Content="z =" HorizontalAlignment="Left" Height="94" Margin="157,483,0,0" VerticalAlignment="Top" Width="64" FontSize="40" FontFamily="Segoe UI Variable Display" FontWeight="Bold"/>
-        <TextBox x:Name="ResultExpPolarRad_TB" HorizontalAlignment="Left" Height="Auto" Margin="226,488,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="648" Background="{x:Null}" BorderBrush="{x:Null}" SelectionBrush="{x:Null}" FontFamily="Segoe UI Variable Display" FontSize="40" FontWeight="Bold"/>
+        <TextBox x:Name="ResultExpPolarRad_TB" HorizontalAlignment="Left" Height="Auto" Margin="226,488,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="Auto" Background="{x:Null}" BorderBrush="{x:Null}" SelectionBrush="{x:Null}" FontFamily="Segoe UI Variable Display" FontSize="40" FontWeight="Bold"/>
         <Label Content="angle =" HorizontalAlignment="Left" Height="73" Margin="437,137,0,0" VerticalAlignment="Top" Width="151" FontSize="40" FontFamily="Segoe UI Variable Display"/>
         <Border BorderThickness="1" HorizontalAlignment="Left" Height="56" Margin="597,140,0,0" VerticalAlignment="Top" Width="140" BorderBrush="#FFFEC5BB" CornerRadius="5">
             <TextBox x:Name="Num_AExpPolarRad_TB" HorizontalAlignment="Center" Height="56" TextWrapping="Wrap" Text="" VerticalAlignment="Center" Width="140" FontFamily="Segoe UI Variable Display" FontSize="40" BorderBrush="{x:Null}" Background="{x:Null}" SelectionBrush="{x:Null}"/>
@@ -29,11 +29,13 @@
         <RadioButton x:Name="C_Set" Content="Комплексное (Декартова)" HorizontalAlignment="Left" Height="37" Margin="40,295,0,0" VerticalAlignment="Top" Width="376" FontSize="30" Checked="C_Set_Checked"/>
         <Frame x:Name="ExpPolarRadFrame" Content="" HorizontalAlignment="Left" Height="65" Margin="40,353,0,0" VerticalAlignment="Top" Width="700"/>
         <Border BorderBrush="#FFFEC5BB" CornerRadius="15" BorderThickness="3" HorizontalAlignment="Left" Height="56" Margin="776,354,0,0" VerticalAlignment="Top" Width="56">
-            <Button Name="DelExpPolarRad" Content="✕" HorizontalAlignment="Center" Height="56" VerticalAlignment="Center" Width="56" Background="{x:Null}" BorderBrush="{x:Null}" FontSize="36" FontFamily="Segoe UI Variable Display" FontWeight="Bold"/>
+            <Button Name="DelExpPolarRad" Content="✕" HorizontalAlignment="Center" Height="56" VerticalAlignment="Center" Width="56" Background="{x:Null}" BorderBrush="{x:Null}" FontSize="36" FontFamily="Segoe UI Variable Display" FontWeight="Bold" Click="DelExpPolarRad_Click_1"/>
 
         </Border>
         <RadioButton x:Name="C_Set_PolarDeg" Content="Комплексное (Полярная, Deg)" HorizontalAlignment="Left" Height="43" Margin="437,252,0,0" VerticalAlignment="Top" Width="437" FontSize="30" Checked="C_Set_PolarDeg_Checked"/>
         <RadioButton x:Name="C_Set_PolarRad" Content="Комплексное (Полярная, Rad)" HorizontalAlignment="Left" Height="37" Margin="437,295,0,0" VerticalAlignment="Top" Width="437" FontSize="30" Checked="C_Set_PolarRad_Checked"/>
-
+        <Border  BorderThickness="1" HorizontalAlignment="Left" Height="56" Margin="700,354,0,0" VerticalAlignment="Top" Width="56" BorderBrush="#FFFEC5BB" CornerRadius="15" Background="#FFFEC5BB">
+            <Button Name="Do" Content="→" HorizontalAlignment="Center" Height="56" VerticalAlignment="Center" Width="56" Background="{x:Null}" BorderBrush="{x:Null}" FontSize="36" FontFamily="Segoe UI Variable Display" RenderTransformOrigin="0.564,0.55" Click="Do_Click_1"/>
+        </Border>
     </Grid>
 </Page>

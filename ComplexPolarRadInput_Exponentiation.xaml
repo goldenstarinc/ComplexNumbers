@@ -17,9 +17,6 @@
         <Border BorderThickness="1" HorizontalAlignment="Left" Height="56" Margin="431,2,0,0" VerticalAlignment="Top" Width="190" BorderBrush="#FFFEC5BB" CornerRadius="5">
             <TextBox Name="AnglePolarRad_TB" HorizontalAlignment="Center" Height="56" TextWrapping="Wrap" Text="" VerticalAlignment="Center" Width="190" FontFamily="Segoe UI Variable Display" FontSize="40" BorderBrush="{x:Null}" Background="{x:Null}" SelectionBrush="{x:Null}"/>
         </Border>
-        <Border  BorderThickness="1" HorizontalAlignment="Left" Height="56" Margin="634,2,0,0" VerticalAlignment="Top" Width="56" BorderBrush="#FFFEC5BB" CornerRadius="15" Background="#FFFEC5BB">
-            <Button Name="Do" Content="→" HorizontalAlignment="Center" Height="56" VerticalAlignment="Center" Width="56" Background="{x:Null}" BorderBrush="{x:Null}" FontSize="36" FontFamily="Segoe UI Variable Display"/>
-        </Border>
 
     </Grid>
 </Page>

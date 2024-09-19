@@ -22,12 +22,12 @@
             <Button x:Name="Do" Content="→" Background="{x:Null}" BorderBrush="{x:Null}" FontSize="48" FontFamily="Segoe UI Variable Display" FontWeight="Bold" Margin="13,-11,9,0" Click="Do_Click_1" Height="55" VerticalAlignment="Top"/>
 
         </Border>
-        <TextBox x:Name="Output_TB" HorizontalAlignment="Left" Height="Auto" Margin="153,597,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="Auto" Background="{x:Null}" BorderBrush="{x:Null}" FontFamily="Segoe UI Variable Display" FontSize="40" FontWeight="Bold"/>
+        <TextBox x:Name="Output_TB" HorizontalAlignment="Left" Height="Auto" Margin="147,578,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="Auto" Background="{x:Null}" BorderBrush="{x:Null}" FontFamily="Segoe UI Variable Display" FontSize="40" FontWeight="Bold"/>
         <Border BorderBrush="#FFFEC5BB" CornerRadius="20" BorderThickness="3" HorizontalAlignment="Left" Height="55" Margin="218,447,0,0" VerticalAlignment="Top" Width="106">
             <Button x:Name="Del" Content="✕" HorizontalAlignment="Center" Width="82" Background="{x:Null}" BorderBrush="{x:Null}" FontSize="36" FontFamily="Segoe UI Variable Display" FontWeight="Bold" Margin="0,0,0,-3" Height="55" VerticalAlignment="Bottom" Click="Del_Click_1"/>
 
         </Border>
-        <ComboBox Name="InputComboBox" BorderBrush="#FFFEC5BB" HorizontalAlignment="Left" Height="48" Margin="45,0,0,506" VerticalAlignment="Bottom" Width="810" Background="White" FontSize="24" FontFamily="Segoe UI Variable Display" BorderThickness="0,0,0,3" Grid.ColumnSpan="2">
+        <ComboBox Name="InputComboBox" BorderBrush="#FFFEC5BB" HorizontalAlignment="Left" Height="48" Margin="45,0,0,506" VerticalAlignment="Bottom" Width="810" Background="White" FontSize="24" FontFamily="Segoe UI Variable Display" BorderThickness="0,0,0,3" Grid.ColumnSpan="2" SelectionChanged="InputComboBox_SelectionChanged">
             <ComboBoxItem x:Name="CartesianInput" Content="Декартова" FontFamily="Segoe UI Variable Display" FontSize="24"/>
             <ComboBoxItem x:Name="PolarTrigDegreesInput" Content="Полярная / Тригонометрическая / Градусы" FontFamily="Segoe UI Variable Display" FontSize="24"/>
             <ComboBoxItem x:Name="PolarTrigRadiansInput" Content="Полярная / Тригонометрическая / Радианы" FontFamily="Segoe UI Variable Display" FontSize="24"/>
@@ -44,11 +44,11 @@
         <Border BorderThickness="1" HorizontalAlignment="Left" Height="56" Margin="100,366,0,0" VerticalAlignment="Top" Width="322" BorderBrush="#FFFEC5BB" CornerRadius="5">
             <TextBox x:Name="Input1_TB" HorizontalAlignment="Center" Height="56" TextWrapping="Wrap" Text="" VerticalAlignment="Center" Width="322" FontFamily="Segoe UI Variable Display" FontSize="40" BorderBrush="{x:Null}" Background="{x:Null}" SelectionBrush="{x:Null}"/>
         </Border>
-        <Border BorderThickness="1" HorizontalAlignment="Left" Height="56" Margin="82,366,0,0" VerticalAlignment="Top" Width="322" BorderBrush="#FFFEC5BB" CornerRadius="5" Grid.Column="1">
+        <Border BorderThickness="1" HorizontalAlignment="Left" Height="56" Margin="82,366,0,0" VerticalAlignment="Top" Width="Auto" BorderBrush="#FFFEC5BB" CornerRadius="5" Grid.Column="1">
             <TextBox x:Name="Input2_TB" HorizontalAlignment="Center" Height="56" TextWrapping="Wrap" Text="" VerticalAlignment="Center" Width="322" FontFamily="Segoe UI Variable Display" FontSize="40" BorderBrush="{x:Null}" Background="{x:Null}" SelectionBrush="{x:Null}"/>
         </Border>
-        <TextBlock Name = "Description1"  HorizontalAlignment="Left" Height="56" Margin="45,368,0,0" TextWrapping="Wrap" Text="This text depends on the ComboBox" VerticalAlignment="Top" Width="50" FontFamily="Segoe UI Variable Display" FontSize="40"/>
-        <TextBlock Name = "Description2"  HorizontalAlignment="Left" Height="56" Margin="30,368,0,0" TextWrapping="Wrap" Text="This text depends on the ComboBox" VerticalAlignment="Top" Width="47" FontFamily="Segoe UI Variable Display" FontSize="40" Grid.Column="1"/>
+        <TextBlock Name = "Description1"  HorizontalAlignment="Left" Height="Auto" Margin="45,368,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="Auto" FontFamily="Segoe UI Variable Display" FontSize="40"/>
+        <TextBlock Name = "Description2"  HorizontalAlignment="Left" Height="Auto" Margin="450,368,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="Auto" FontFamily="Segoe UI Variable Display" FontSize="40" Grid.ColumnSpan="2"/>
         <TextBlock Name = "Result_TB_Label"  HorizontalAlignment="Left" Height="56" Margin="48,573,0,0" TextWrapping="Wrap" Text="z =" VerticalAlignment="Top" Width="59" FontFamily="Segoe UI Variable Display" FontSize="40" FontWeight="Bold"/>
         <TextBlock x:Name = "Result_TB"  HorizontalAlignment="Left" Height="Auto" Margin="112,573,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="Auto" FontFamily="Segoe UI Variable Display" FontSize="40" Grid.ColumnSpan="2"/>
 

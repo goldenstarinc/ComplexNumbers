@@ -14,6 +14,7 @@ namespace Complex_Interface_WPF
             InitializeComponent();
             // Привязываем событие нажатия кнопки "Do" к обработчику события
             Do.Click += Do_Click_1;
+            InputComboBox.SelectionChanged += InputComboBox_SelectionChanged;
         }
 
         // Обработчик нажатия на кнопку "Do" для выполнения преобразования
@@ -41,6 +42,35 @@ namespace Complex_Interface_WPF
             catch (Exception ex)
             {
                 // В случае ошибки показываем сообщение об ошибке красным цветом
+                Output_TB.Text = $"Ошибка: {ex.Message}";
+                Output_TB.Foreground = Brushes.Red;
+            }
+        }
+        // Метод для обновления описаний при изменении выбранной системы в ComboBox
+        private void InputComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            try
+            {
+                var fromSystem = GetSelectedFromSystem();
+                if (fromSystem == "CartesianInput")
+                {
+                    Description1.Text = "a";
+                    Description2.Text = "b";
+                }
+                else if (fromSystem == "PolarTrigDegreesInput" || fromSystem == "PolarExponentialDegreesInput")
+                {
+                    Description1.Text = "r";
+                    Description2.Text = "angle";
+                }
+                else if (fromSystem == "PolarTrigRadiansInput" || fromSystem == "PolarExponentialRadiansInput")
+                {
+                    Description1.Text = "r";
+                    Description2.Text = "angle";
+                }
+            }
+            catch (Exception ex)
+            {
+                // В случае ошибки выводим сообщение в Output_TB
                 Output_TB.Text = $"Ошибка: {ex.Message}";
                 Output_TB.Foreground = Brushes.Red;
             }
@@ -150,7 +180,7 @@ namespace Complex_Interface_WPF
                 // Экспоненциальное представление
                 if (toSystem.Contains("Exponential"))
                 {
-                    return $"{radius}e^(i{angle})";
+                    return $"{radius} * e ^ (i * {angle})";
                 }
                 // Тригонометрическое представление
                 else

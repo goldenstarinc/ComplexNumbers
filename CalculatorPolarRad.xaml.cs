@@ -72,7 +72,7 @@ namespace Complex_Interface_WPF
                 }
 
                 // Отображение результата
-                ResultPolarRad_TB.Text = result.Display();
+                ResultPolarRad_TB.Text = result.Display(true);
                 ResultPolarRad_TB.Foreground = Brushes.Black;
             }
             catch (FormatException)

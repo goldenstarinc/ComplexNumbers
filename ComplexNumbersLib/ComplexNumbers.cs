@@ -135,7 +135,6 @@ namespace ComplexNumbersLib
             double newAngle = z.angle * exponent;
             return new ComplexNumbers(newRadius, newAngle, true);
         }
-
         /// <summary>
         /// Метод для возведения одного комплексного числа в степень другого комплексного числа
         /// </summary>
@@ -160,7 +159,7 @@ namespace ComplexNumbersLib
         }
 
         /// <summary>
-        /// Выводит комплексное число на консоль в виде строки.
+        /// Выводит комплексное число на консоль в виде строки в декартовой форме.
         /// </summary>
         public string Display()
         {
@@ -169,6 +168,19 @@ namespace ComplexNumbersLib
             if (b < 0)
                 return $"{realPart} - {Math.Abs(imaginaryPart)}i";
             return $"{realPart} + {imaginaryPart}i"; // Выводит комплексное число на консоль
+        }
+
+        /// <summary>
+        /// Выводит комплексное число на консоль в виде строки в полярной форме.
+        /// </summary>
+        public string Display(bool isInRadians)
+        {
+            double r = radius;
+            double phi = angle;
+
+            if (!isInRadians)
+                phi = phi * (180 / Math.PI);
+            return $"{Math.Round(r, 3)}r * (cos({Math.Round(phi, 3)}) + i * sin(({Math.Round(phi, 3)}))"; // Выводит комплексное число на консоль
         }
     }
 }

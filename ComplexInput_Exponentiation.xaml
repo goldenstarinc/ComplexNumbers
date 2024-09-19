@@ -18,9 +18,6 @@
             <TextBox x:Name="Num_Im_TB" HorizontalAlignment="Center" Height="56" TextWrapping="Wrap" Text="" VerticalAlignment="Center" Width="234" FontFamily="Segoe UI Variable Display" FontSize="40" BorderBrush="{x:Null}" Background="{x:Null}" SelectionBrush="{x:Null}"/>
         </Border>
         <Label Content="i" HorizontalAlignment="Left" Height="67" Margin="587,0,0,0" VerticalAlignment="Center" Width="20" FontSize="40" FontFamily="Segoe UI Variable Display"/>
-        <Border  BorderThickness="1" HorizontalAlignment="Left" Height="56" Margin="634,2,0,0" VerticalAlignment="Top" Width="56" BorderBrush="#FFFEC5BB" CornerRadius="15" Background="#FFFEC5BB">
-            <Button Name="Do" Content="→" HorizontalAlignment="Center" Height="56" VerticalAlignment="Center" Width="56" Background="{x:Null}" BorderBrush="{x:Null}" FontSize="36" FontFamily="Segoe UI Variable Display"/>
-        </Border>
 
     </Grid>
 </Page>

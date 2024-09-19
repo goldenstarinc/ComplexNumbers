@@ -70,7 +70,7 @@ namespace Complex_Interface_WPF
                 }
 
                 // Отображение результата в текстовом поле
-                ResultPolarDeg_TB.Text = result.Display();
+                ResultPolarDeg_TB.Text = result.Display(false);
                 ResultPolarDeg_TB.Foreground = Brushes.Black;
             }
             catch (FormatException)

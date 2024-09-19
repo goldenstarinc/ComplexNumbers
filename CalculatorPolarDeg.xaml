@@ -52,6 +52,8 @@
         <Border BorderBrush="#FFF8EDEB" BorderThickness="1" HorizontalAlignment="Center" Height="62" Margin="0,18,0,0" VerticalAlignment="Top" Width="875" CornerRadius="10" Background="#FFF8EDEB">
             <TextBlock Height="62" TextWrapping="Wrap" VerticalAlignment="Center" FontFamily="Segoe UI Variable Display" FontSize="20" HorizontalAlignment="Center" Width="865"><Run Text="Введи радиус"/><Run Text="(r) "/><Run Text="и угол("/><Run Text="angle), "/><Run Text="где "/><Run Text="angle"/><Run Text=" "/><Run Text="в "/><Run Text="градусах"/><Run Text="."/><Run Text=" Мы не используем отдельный калькулятор для"/><Run Language="ru-ru" Text=" экспоненциальной формы, так это просто другая запись для полярной системы."/><Run Text=" "/><Run Text=" "/><LineBreak/><Run/><LineBreak/><Run Text="   "/></TextBlock>
         </Border>
+        <TextBox x:Name="ResultPolarDeg_TB_Copy" HorizontalAlignment="Left" Height="Auto" Margin="225,510,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="Auto" Background="{x:Null}" BorderBrush="{x:Null}" SelectionBrush="{x:Null}" FontFamily="Segoe UI Variable Display" FontSize="40" FontWeight="Bold"/>
+        <TextBox x:Name="ResultPolarDeg_TB_Copy1" HorizontalAlignment="Left" Height="Auto" Margin="225,511,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="Auto" Background="{x:Null}" BorderBrush="{x:Null}" SelectionBrush="{x:Null}" FontFamily="Segoe UI Variable Display" FontSize="40" FontWeight="Bold"/>
 
     </Grid>
 </Page>
