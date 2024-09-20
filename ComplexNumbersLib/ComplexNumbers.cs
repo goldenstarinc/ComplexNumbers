@@ -68,6 +68,92 @@ namespace ComplexNumbersLib
         }
 
         /// <summary>
+        /// Сложение двух комплексных чисел в экспоненциальной форме
+        /// </summary>
+        /// <param name="z2">Второе комплексное число</param>
+        /// <returns>Результат сложения комплексных чисел</returns>
+        public ComplexNumbers Add(ComplexNumbers z2)
+        {
+            double realPart = this.a + z2.a;
+            double imaginaryPart = this.b + z2.b;
+            return new ComplexNumbers(realPart, imaginaryPart);
+        }
+
+        /// <summary>
+        /// Вычитание комплексных чисел
+        /// </summary>
+        /// <param name="z2">Второе комплексное число</param>
+        /// <returns>Результат вычитания комплексных чисел</returns>
+        public ComplexNumbers Subtract(ComplexNumbers z2)
+        {
+            double realPart = this.a - z2.a;
+            double imaginaryPart = this.b - z2.b;
+            return new ComplexNumbers(realPart, imaginaryPart);
+        }
+
+        /// <summary>
+        /// Умножение двух комплексных чисел
+        /// </summary>
+        /// <param name="z2">Второе комплексное число</param>
+        /// <returns>Результат умножения комплексных чисел</returns>
+        public ComplexNumbers Multiply(ComplexNumbers z2)
+        {
+            double newRadius = this.radius * z2.radius;
+            double newAngle = this.angle + z2.angle;
+            return new ComplexNumbers(newRadius, newAngle, true);
+        }
+
+
+        /// <summary>
+        /// Деление двух комплексных чисел в экспоненциальной форме
+        /// </summary>
+        /// <param name="z2">Второе комплексное число</param>
+        /// <returns>Результат деления комплексных чисел</returns>
+        public ComplexNumbers Divide(ComplexNumbers z2)
+        {
+            double newRadius = this.radius / z2.radius;
+            double newAngle = this.angle - z2.angle;
+            return new ComplexNumbers(newRadius, newAngle, true);
+        }
+
+        /// <summary>
+        /// Метод для возведения комплексного числа в степень
+        /// </summary>
+        /// <param name="z">Комплексное число</param>
+        /// <param name="exponent">Целая степень для возведения</param>
+        /// <returns>Результат возведения комплексного числа в степень</returns>
+
+        public static ComplexNumbers Pow(ComplexNumbers z, int exponent)
+        {
+            double newRadius = Math.Pow(z.radius, exponent);
+            double newAngle = z.angle * exponent;
+            return new ComplexNumbers(newRadius, newAngle, true);
+        }
+
+        /// <summary>
+        /// Метод для возведения одного комплексного числа в степень другого комплексного числа
+        /// </summary>
+        /// <param name="z1">Основание (комплексное число)</param>
+        /// <param name="z2">Показатель степени (комплексное число)</param>
+        /// <returns>Результат возведения в степень</returns>
+        public static ComplexNumbers Pow(ComplexNumbers z1, ComplexNumbers z2)
+        {
+            // Вычисляем логарифм от z1 (ln(z1))
+            double lnRadius = Math.Log(z1.radius);
+            double angleLn = z1.angle;
+
+            // Умножаем z2 на логарифм z1
+            double realPart = z2.a * lnRadius - z2.b * angleLn; // Реальная часть произведения
+            double imaginaryPart = z2.a * angleLn + z2.b * lnRadius; // Мнимая часть произведения
+
+            // Преобразуем результат в экспоненциальную форму
+            double newRadius = Math.Exp(realPart); // Радиус новой комплексной экспоненты
+            double newAngle = imaginaryPart; // Угол новой комплексной экспоненты
+
+            return new ComplexNumbers(newRadius, newAngle, true);
+        }
+
+        /// <summary>
         /// Перегрузка оператора сложения (+)
         /// Сложение двух комплексных чисел в экспоненциальной форме
         /// </summary>
@@ -116,92 +202,29 @@ namespace ComplexNumbersLib
         }
 
         /// <summary>
-        /// Сложение двух комплексных чисел в экспоненциальной форме
-        /// </summary>
-        /// <param name="z1">Первое комплексное число</param>
-        /// <param name="z2">Второе комплексное число</param>
-        /// <returns>Результат сложения комплексных чисел</returns>
-        public ComplexNumbers Add(ComplexNumbers z2)
-        {
-            double realPart = this.a + z2.a;
-            double imaginaryPart = this.b + z2.b;
-            return new ComplexNumbers(realPart, imaginaryPart);
-        }
-
-
-        /// <summary>
-        /// Вычитание комплексных чисел
-        /// </summary>
-        /// <param name="z2">Второе комплексное число</param>
-        /// <returns>Результат вычитания комплексных чисел</returns>
-        public ComplexNumbers Subtract(ComplexNumbers z2)
-        {
-            double realPart = this.a - z2.a;
-            double imaginaryPart = this.b - z2.b;
-            return new ComplexNumbers(realPart, imaginaryPart);
-        }
-
-        /// <summary>
-        /// Умножение двух комплексных чисел
-        /// </summary>
-        /// <param name="z2">Второе комплексное число</param>
-        /// <returns>Результат умножения комплексных чисел</returns>
-        public ComplexNumbers Multiply(ComplexNumbers z2)
-        {
-            double newRadius = this.radius * z2.radius;
-            double newAngle = this.angle + z2.angle;
-            return new ComplexNumbers(newRadius, newAngle, true);
-        }
-
-
-        /// <summary>
-        /// Деление двух комплексных чисел в экспоненциальной форме
-        /// </summary>
-        /// <param name="z1">Первое комплексное число</param>
-        /// <param name="z2">Второе комплексное число</param>
-        /// <returns>Результат деления комплексных чисел</returns>
-        public ComplexNumbers Divide(ComplexNumbers z2)
-        {
-            double newRadius = this.radius / z2.radius;
-            double newAngle = this.angle - z2.angle;
-            return new ComplexNumbers(newRadius, newAngle, true);
-        }
-
-
-        /// <summary>
-        /// Метод для возведения комплексного числа в степень
+        /// Перегрузка оператора возведения в степень (^)
+        /// Возведение комплексного числа в степень вещественного числа
         /// </summary>
         /// <param name="z">Комплексное число</param>
-        /// <param name="exponent">Целая степень для возведения</param>
-        /// <returns>Результат возведения комплексного числа в степень</returns>
-        public static ComplexNumbers Pow(ComplexNumbers z, int exponent)
+        /// <param name="exponent">Степень в виде вещественного числа</param>
+        /// <returns>Результат возведения комплексного числа в степень вещественного числа</returns>
+        public static ComplexNumbers operator ^(ComplexNumbers z, int exponent)
         {
-            double newRadius = Math.Pow(z.radius, exponent);
-            double newAngle = z.angle * exponent;
-            return new ComplexNumbers(newRadius, newAngle, true);
+            return Pow(z, exponent);
         }
+
         /// <summary>
-        /// Метод для возведения одного комплексного числа в степень другого комплексного числа
+        /// Перегрузка оператора возведения в степень (^)
+        /// Возведение комплексного числа в степень указанного комплексного числа
         /// </summary>
-        /// <param name="z1">Основание (комплексное число)</param>
-        /// <param name="z2">Показатель степени (комплексное число)</param>
-        /// <returns>Результат возведения в степень</returns>
-        public static ComplexNumbers Pow(ComplexNumbers z1, ComplexNumbers z2)
+        /// <param name="z1">Первое комплексное число</param>
+        /// <param name="z2">Второе комплексное число</param>
+        /// <returns>Результат возведения комплексного числа в указанного степень комплексного числа</returns>
+        public static ComplexNumbers operator ^(ComplexNumbers z1, ComplexNumbers z2)
         {
-            // Вычисляем логарифм от z1 (ln(z1))
-            double lnRadius = Math.Log(z1.radius);
-            double angleLn = z1.angle;
-
-            // Умножаем z2 на логарифм z1
-            double realPart = z2.a * lnRadius - z2.b * angleLn; // Реальная часть произведения
-            double imaginaryPart = z2.a * angleLn + z2.b * lnRadius; // Мнимая часть произведения
-
-            // Преобразуем результат в экспоненциальную форму
-            double newRadius = Math.Exp(realPart); // Радиус новой комплексной экспоненты
-            double newAngle = imaginaryPart; // Угол новой комплексной экспоненты
-
-            return new ComplexNumbers(newRadius, newAngle, true);
+            return Pow(z1, z2);
         }
+
 
         /// <summary>
         /// Возвращает реальную часть комплексного числа

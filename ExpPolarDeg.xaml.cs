@@ -96,7 +96,7 @@ namespace Complex_Interface_WPF
                 // Возведение в степень
                 if (exponent != null)
                 {
-                    ComplexNumbers powResult = ComplexNumbers.Pow(z, exponent);
+                    ComplexNumbers powResult = z ^ exponent;
                     ResultExpPolarDeg_TB.Text = powResult.Display(); // Используем метод Display для отображения результата
                 }
             }
