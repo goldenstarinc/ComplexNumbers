@@ -15,10 +15,10 @@ namespace ComplexNumbersLib
     public class ComplexNumbers
     {
         // Поля класса, представляющие реальную и мнимую части числа
-        public double a; // Реальная часть комплексного числа
-        public double b; // Мнимая часть комплексного числа
-        public double radius; // Радиус числа в полярной форме
-        public double angle; // Угол числа в полярной форме
+        private double a; // Реальная часть комплексного числа
+        private double b; // Мнимая часть комплексного числа
+        private double radius; // Радиус числа в полярной форме
+        private double angle; // Угол числа в полярной форме
 
         /// <summary>
         /// Конструктор, инициализирующий комплексное число через его декартовы координаты (реальная и мнимая части).
@@ -30,8 +30,8 @@ namespace ComplexNumbersLib
             this.a = a; // Инициализация реальной части
             this.b = b; // Инициализация мнимой части
 
-            this.radius = Math.Sqrt(Math.Pow(a, 2) + Math.Pow(b, 2));
-            this.angle = Math.Atan2(b, a);
+            radius = Math.Sqrt(Math.Pow(a, 2) + Math.Pow(b, 2));
+            angle = Math.Atan2(b, a);
         }
 
         /// <summary>
@@ -53,18 +53,18 @@ namespace ComplexNumbersLib
 
             // Преобразование из полярной формы в декартовую: 
             // a = r * cos(θ), b = r * sin(θ)
-            this.a = radius * Math.Cos(angle); // Вычисление реальной части
-            this.b = radius * Math.Sin(angle); // Вычисление мнимой части
+            a = radius * Math.Cos(angle); // Вычисление реальной части
+            b = radius * Math.Sin(angle); // Вычисление мнимой части
         }
         /// <summary>
         /// Пустой конструктор для ситуаций, в которых инициализация параметров на этапе создания объекта не требуется или невозможна
         /// </summary>
         public ComplexNumbers()
         {
-            this.a = 0;
-            this.b = 0;
-            this.radius = Math.Atan2(b, a);
-            this.angle = Math.Sqrt(Math.Pow(a, 2) + Math.Pow(b, 2));
+            a = 1;
+            b = 1;
+            angle = Math.Atan2(b, a);
+            radius = Math.Sqrt(Math.Pow(a, 2) + Math.Pow(b, 2));
         }
 
         /// <summary>
@@ -76,9 +76,7 @@ namespace ComplexNumbersLib
         /// <returns>Результат сложения комплексных чисел</returns>
         public static ComplexNumbers operator +(ComplexNumbers z1, ComplexNumbers z2)
         {
-            double realPart = z1.a + z2.a;
-            double imaginaryPart = z1.b + z2.b;
-            return new ComplexNumbers(realPart, imaginaryPart);
+            return z1.Add(z2); 
         }
 
         /// <summary>
@@ -90,9 +88,7 @@ namespace ComplexNumbersLib
         /// <returns>Результат вычитания комплексных чисел</returns>
         public static ComplexNumbers operator -(ComplexNumbers z1, ComplexNumbers z2)
         {
-            double realPart = z1.a - z2.a;
-            double imaginaryPart = z1.b - z2.b;
-            return new ComplexNumbers(realPart, imaginaryPart);
+            return z1.Subtract(z2);
         }
 
         /// <summary>
@@ -104,9 +100,7 @@ namespace ComplexNumbersLib
         /// <returns>Результат умножения комплексных чисел</returns>
         public static ComplexNumbers operator *(ComplexNumbers z1, ComplexNumbers z2)
         {
-            double newRadius = z1.radius * z2.radius;
-            double newAngle = z1.angle + z2.angle;
-            return new ComplexNumbers(newRadius, newAngle, true);
+            return z1.Multiply(z2);
         }
 
         /// <summary>
@@ -118,10 +112,61 @@ namespace ComplexNumbersLib
         /// <returns>Результат деления комплексных чисел</returns>
         public static ComplexNumbers operator /(ComplexNumbers z1, ComplexNumbers z2)
         {
-            double newRadius = z1.radius / z2.radius;
-            double newAngle = z1.angle - z2.angle;
+            return z1.Divide(z2);
+        }
+
+        /// <summary>
+        /// Сложение двух комплексных чисел в экспоненциальной форме
+        /// </summary>
+        /// <param name="z1">Первое комплексное число</param>
+        /// <param name="z2">Второе комплексное число</param>
+        /// <returns>Результат сложения комплексных чисел</returns>
+        public ComplexNumbers Add(ComplexNumbers z2)
+        {
+            double realPart = this.a + z2.a;
+            double imaginaryPart = this.b + z2.b;
+            return new ComplexNumbers(realPart, imaginaryPart);
+        }
+
+
+        /// <summary>
+        /// Вычитание комплексных чисел
+        /// </summary>
+        /// <param name="z2">Второе комплексное число</param>
+        /// <returns>Результат вычитания комплексных чисел</returns>
+        public ComplexNumbers Subtract(ComplexNumbers z2)
+        {
+            double realPart = this.a - z2.a;
+            double imaginaryPart = this.b - z2.b;
+            return new ComplexNumbers(realPart, imaginaryPart);
+        }
+
+        /// <summary>
+        /// Умножение двух комплексных чисел
+        /// </summary>
+        /// <param name="z2">Второе комплексное число</param>
+        /// <returns>Результат умножения комплексных чисел</returns>
+        public ComplexNumbers Multiply(ComplexNumbers z2)
+        {
+            double newRadius = this.radius * z2.radius;
+            double newAngle = this.angle + z2.angle;
             return new ComplexNumbers(newRadius, newAngle, true);
         }
+
+
+        /// <summary>
+        /// Деление двух комплексных чисел в экспоненциальной форме
+        /// </summary>
+        /// <param name="z1">Первое комплексное число</param>
+        /// <param name="z2">Второе комплексное число</param>
+        /// <returns>Результат деления комплексных чисел</returns>
+        public ComplexNumbers Divide(ComplexNumbers z2)
+        {
+            double newRadius = this.radius / z2.radius;
+            double newAngle = this.angle - z2.angle;
+            return new ComplexNumbers(newRadius, newAngle, true);
+        }
+
 
         /// <summary>
         /// Метод для возведения комплексного числа в степень
@@ -159,7 +204,52 @@ namespace ComplexNumbersLib
         }
 
         /// <summary>
-        /// Выводит комплексное число на консоль в виде строки в декартовой форме.
+        /// Возвращает реальную часть комплексного числа
+        /// </summary>
+        /// <returns>Реальная часть комплексного числа</returns>
+        public double getRealPart()
+        {
+            return a;
+        }
+
+        /// <summary>
+        /// Возвращает мнимую часть комплексного числа
+        /// </summary>
+        /// <returns>Мнимая часть комплексного числа</returns>
+        public double getImaginaryPart()
+        {
+            return b;
+        }
+
+        /// <summary>
+        /// Возвращает модуль комплексного числа
+        /// </summary>
+        /// <returns>Модуль комплексного числа</returns>
+        public double getRadius()
+        {
+            return radius;
+        }
+
+        /// <summary>
+        /// Возвращает угол комплексного числа
+        /// </summary>
+        /// <returns>Угол комплексного числа</returns>
+        public double getAngle()
+        {
+            return angle;
+        }
+
+        /// <summary>
+        /// Переопределяет метод ToString для представления комплексного числа в виде строки
+        /// </summary>
+        /// <returns>Метод Display, возвращающий комплексное число в виде строки в декартовой форме</returns>
+        public override string ToString()
+        {
+            return Display();
+        }
+
+        /// <summary>
+        /// Возвращает комплексное число в виде строки в декартовой форме.
         /// </summary>
         public string Display()
         {
@@ -167,21 +257,52 @@ namespace ComplexNumbersLib
             double imaginaryPart = Math.Round(b, 3);
             if (b < 0)
                 return $"{realPart} - {Math.Abs(imaginaryPart)}i";
+            else if (b == 0)
+                return $"{realPart}";
+            else if (a == 0)
+                return $"{imaginaryPart}i";
             return $"{realPart} + {imaginaryPart}i"; // Выводит комплексное число на консоль
         }
 
         /// <summary>
-        /// Выводит комплексное число на консоль в виде строки в полярной форме.
+        /// Возвращает комплексное число в виде строки в полярной форме.
         /// </summary>
-        public string Display(bool isInRadians)
+        public string Display(bool isInRadians, bool isExp)
         {
             double r = radius;
             double phi = angle;
-
+            string result = "";
             if (!isInRadians)
                 phi = phi * (180 / Math.PI);
-            return $"{Math.Round(r, 3)}r * (cos({Math.Round(phi, 3)}) + i * sin(({Math.Round(phi, 3)}))"; // Выводит комплексное число на консоль
+
+            if (!isExp)
+                result = $"{Math.Round(r, 3)}r * (cos({Math.Round(phi, 3)}) + i * sin(({Math.Round(phi, 3)}))";
+            else
+                result = $"{Math.Round(r, 3)} * e ^ (i * {Math.Round(phi, 3)})";
+            return result;
         }
+
+
+        /// <summary>
+        /// Переопределяет метод Equals для сравнения двух комплексных чисел
+        /// </summary>
+        /// <param name="obj">Объект для сравнения</param>
+        /// <returns>true - если данное комплексное число равно переданному объекту, в противном случае false</returns>
+        public override bool Equals(object obj)
+        {
+            // Проверка на null и правильный тип объекта
+            if (obj == null || !(obj is ComplexNumbers))
+                return false;
+
+            ComplexNumbers num2 = obj as ComplexNumbers;
+
+            // Проверяем на равенство реальных и мнимых частей
+            if (this.a == num2.getRealPart() && this.b == num2.getImaginaryPart())
+                return true;
+
+            return false;
+        }
+
     }
 }
 

@@ -157,8 +157,8 @@ namespace Complex_Interface_WPF
         // Метод для преобразования комплексного числа в целевую систему координат и возврат результата в виде строки
         private string ConvertComplexNumber(ComplexNumbers complexNumber, string toSystem)
         {
-            double a = complexNumber.a; // Действительная часть
-            double b = complexNumber.b; // Мнимая часть
+            double a = complexNumber.getRealPart(); // Действительная часть
+            double b = complexNumber.getImaginaryPart(); // Мнимая часть
 
             // Декартова система координат (действительная и мнимая часть)
             if (toSystem == "CartesianOutput")
@@ -166,25 +166,34 @@ namespace Complex_Interface_WPF
                 return complexNumber.Display();
             }
             // Полярная система координат
-            else if (toSystem.Contains("Polar"))
+            else if (toSystem.Contains("Trig"))
             {
-                double radius = complexNumber.radius;
-                double angle = complexNumber.angle;
+                double radius = complexNumber.getRadius();
+                double angle = complexNumber.getAngle();
 
                 // Преобразование угла в градусы, если необходимо
                 if (toSystem.Contains("Degrees"))
                 {
-                    angle = angle * (180 / Math.PI);
-                    return complexNumber.Display(false);
+                    return complexNumber.Display(false, false);
                 }
                 else if (toSystem.Contains("Radians"))
                 {
-                    return complexNumber.Display(true);
+                    return complexNumber.Display(true, false);
                 }
-                // Экспоненциальное представление
-                else if (toSystem.Contains("Exponential"))
+            }
+            // Экспоненциальное представление
+            else if (toSystem.Contains("Exponential"))
+            {
+                double radius = complexNumber.getRadius();
+                double angle = complexNumber.getAngle();
+                // Преобразование угла в градусы, если необходимо
+                if (toSystem.Contains("Degrees"))
                 {
-                    return $"{radius} * e ^ (i * {angle})";
+                    return complexNumber.Display(false, true);
+                }
+                else if (toSystem.Contains("Radians"))
+                {
+                    return complexNumber.Display(true, true);
                 }
             }
 

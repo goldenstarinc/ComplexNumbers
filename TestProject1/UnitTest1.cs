@@ -16,8 +16,8 @@ namespace TestProject1
             ComplexNumbers result = num1 + num2;
 
             // Проверка
-            Assert.Equal(3, result.a);
-            Assert.Equal(7, result.b);
+            Assert.Equal(3, result.getRealPart());
+            Assert.Equal(7, result.getImaginaryPart());
         }
 
         [Fact]
@@ -31,8 +31,8 @@ namespace TestProject1
             ComplexNumbers result = num1 - num2;
 
             // Проверка
-            Assert.Equal(1, result.a);
-            Assert.Equal(-1, result.b);
+            Assert.Equal(1, result.getRealPart());
+            Assert.Equal(-1, result.getImaginaryPart());
         }
 
         [Fact]
@@ -46,8 +46,8 @@ namespace TestProject1
             ComplexNumbers result = num1 * num2;
 
             // Проверка
-            Assert.Equal(-11, result.a, 2);
-            Assert.Equal(7, result.b, 2);
+            Assert.Equal(-11, result.getRealPart(), 2);
+            Assert.Equal(7, result.getImaginaryPart(), 2);
         }
 
         [Fact]
@@ -61,8 +61,8 @@ namespace TestProject1
             ComplexNumbers result = num1 / num2;
 
             // Проверка
-            Assert.Equal(0.82, result.a, 2);
-            Assert.Equal(-0.29, result.b, 2);
+            Assert.Equal(0.82, result.getRealPart(), 2);
+            Assert.Equal(-0.29, result.getImaginaryPart(), 2);
         }
 
         [Fact]
@@ -76,8 +76,8 @@ namespace TestProject1
             ComplexNumbers result = num1 + num2;
 
             // Проверка
-            Assert.Equal(5036, result.a);
-            Assert.Equal(13838, result.b);
+            Assert.Equal(5036, result.getRealPart());
+            Assert.Equal(13838, result.getImaginaryPart());
         }
 
         [Fact]
@@ -91,8 +91,8 @@ namespace TestProject1
             ComplexNumbers result = num1 - num2;
 
             // Проверка
-            Assert.Equal(4040, result.a);
-            Assert.Equal(-932, result.b);
+            Assert.Equal(4040, result.getRealPart());
+            Assert.Equal(-932, result.getImaginaryPart());
         }
 
         [Fact]
@@ -106,8 +106,8 @@ namespace TestProject1
             ComplexNumbers result = num1 * num2;
 
             // Проверка
-            Assert.Equal(-45395481, result.a);
-            Assert.Equal(36726724, result.b);
+            Assert.Equal(-45395481, result.getRealPart());
+            Assert.Equal(36726724, result.getImaginaryPart());
         }
 
         [Fact]
@@ -121,8 +121,20 @@ namespace TestProject1
             ComplexNumbers result = num1 / num2;
 
             // Проверка
-            Assert.Equal(0.9111, result.a, 4);  // Точность до четвертого знака
-            Assert.Equal(-0.5531, result.b, 4);
+            Assert.Equal(0.9111, result.getRealPart(), 4);  // Точность до четвертого знака
+            Assert.Equal(-0.5531, result.getImaginaryPart(), 4);
+        }
+
+        [Fact]
+
+        public void TestEqual()
+        {
+            // Подготовка
+            ComplexNumbers num1 = new ComplexNumbers(2, 2);
+            object a = new ComplexNumbers(2, 2);
+
+            // Проверка
+            Assert.True(num1.Equals(a));
         }
     }
 }
