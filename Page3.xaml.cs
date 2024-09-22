@@ -163,7 +163,7 @@ namespace Complex_Interface_WPF
             // Декартова система координат (действительная и мнимая часть)
             if (toSystem == "CartesianOutput")
             {
-                return complexNumber.Display();
+                return complexNumber.ToString();
             }
             // Полярная система координат
             else if (toSystem.Contains("Trig"))
