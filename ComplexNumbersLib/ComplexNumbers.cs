@@ -235,6 +235,12 @@ namespace ComplexNumbersLib
             return a;
         }
 
+
+        public void setRealPart(double a)
+        {
+            this.a = a;
+        }
+
         /// <summary>
         /// Возвращает мнимую часть комплексного числа
         /// </summary>
@@ -242,6 +248,11 @@ namespace ComplexNumbersLib
         public double getImaginaryPart()
         {
             return b;
+        }
+
+        public void setImaginaryPart(double b)
+        {
+            this.b = b;
         }
 
         /// <summary>
@@ -253,6 +264,12 @@ namespace ComplexNumbersLib
             return radius;
         }
 
+
+       public void setRadius( double radius)
+        {
+            this.radius = radius;
+        }
+
         /// <summary>
         /// Возвращает угол комплексного числа
         /// </summary>
@@ -262,6 +279,12 @@ namespace ComplexNumbersLib
             return angle;
         }
 
+
+
+        public void setAngle(double angle)
+        {
+            this.angle = angle;
+        }
         /// <summary>
         /// Переопределяет метод ToString для представления комплексного числа в виде строки
         /// </summary>
